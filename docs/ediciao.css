@@ -1,12 +1,22 @@
+@keyframes color-change {
+  0% { color: #00FF00; }
+  12% { color: #33FF33; }
+  25% { color: #52af52; }
+  37% { color: #087d08; }
+  49% { color: #66FF66; }
+  62% { color: #04b269; }
+  74% { color: #4afe08; }
+  86% { color: #276112; }
+  95% { color: #99FF99; }
+  100% { color: rgb(64, 103, 0); }
+}/*base feita com ajuda do chatgpt*/
 h1 {
-  background-color: black;
-  color: white;
+  animation: color-change 6s infinite;;
 }
 body {
-    background-color: green;
+    background-color: whitesmoke;
   }
 
 p {
-  background-color: green;
-  color: white;
+  color: black;
 }
