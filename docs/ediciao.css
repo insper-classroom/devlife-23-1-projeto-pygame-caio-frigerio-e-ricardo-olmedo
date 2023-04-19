@@ -1,22 +1,61 @@
 @keyframes color-change {
-  0% { color: #00FF00; }
-  12% { color: #33FF33; }
-  25% { color: #52af52; }
-  37% { color: #087d08; }
-  49% { color: #66FF66; }
-  62% { color: #04b269; }
-  74% { color: #4afe08; }
-  86% { color: #276112; }
-  95% { color: #99FF99; }
-  100% { color: rgb(64, 103, 0); }
-}/*base feita com ajuda do chatgpt*/
+  0% { color: #f52f07; }
+  12% { color: #e77415; }
+  25% { color: #ffc800; }
+  37% { color: #d2400b; }
+  49% { color: #ee8906; }
+  62% { color: #e0c518; }
+  74% { color: #9c0d0d; }
+  86% { color: #e6880d; }
+  100% { color: #e6cf04; }
+}/*base feita com ajuda do chatgpt, cores que o titulo vai oscilar*/
 h1 {
-  animation: color-change 6s infinite;;
-}
-body {
-    background-color: whitesmoke;
+  animation: color-change 6s infinite;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  padding: 40px 0;
+  position: relative;
+  }
+body {font-size: 30px;
+    background-color: white;
   }
 
 p {
   color: black;
+}
+/*Onde vai ficar o video e a ideia do jogo e sua estilizacao*/
+.video {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  background-color: black;
+}
+.texto {
+  width: 50%;
+  margin: 10px 0;
+  text-align: center;
+  background-color: white;
+  
+}
+/*estilizacao do titulo*/
+.dragao {  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100px;
+}
+.dragao-esquerda {
+  left: 25%;
+}
+
+.dragao-direita {
+  right: 25%;
+}
+.titulo {
+  background-size: cover;
+  background-color: white;
+  height: 100px;
+  position: relative;
 }
