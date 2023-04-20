@@ -17,8 +17,35 @@ h1 {
   padding: 40px 0;
   position: relative;
   }
-body {font-size: 30px;
-    background-color: white;
+h2 {text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  padding: 40px 0;
+  position: relative;
+  }
+h3 {text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  padding: 40px 0;
+  position: relative;
+  }
+  h3 p {text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10000000px;
+    padding: 40px 0;
+    position: relative;
+    }
+
+h4 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    padding: 40px 0;
+    position: relative;
+    }
+body {font-size: 20px;
+    background-color:rgb(250, 193, 86);
+    text-align: center;
   }
 
 p {
@@ -28,18 +55,10 @@ p {
 .video {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  text-align: top;
   flex-wrap: wrap;
-  margin-top: 10px;
-  background-color: black;
-}
-.texto {
-  width: 50%;
-  margin: 10px 0;
-  text-align: center;
-  background-color: white;
-  
-}
+  margin-top: 20px;
+  }
 /*estilizacao do titulo*/
 .dragao {  position: absolute;
   top: 0;
@@ -58,4 +77,54 @@ p {
   background-color: white;
   height: 100px;
   position: relative;
+}
+/*estilizacao das imagens*/
+.imagem-par {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-par figure {
+  margin: 90px;
+}
+
+.imagem-par figcaption {
+  text-align: center;
+  font-size: 22px;
+}
+/*estilizacao do download*/
+.imagem-parisntal-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-parisntal-1 figure {
+  margin: 90px;
+}
+
+.imagem-parisntal-1 figcaption {
+  text-align: center;
+  font-size: 22px;
+}
+.imagem-parisntal-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-parisntal-2 figure {
+  margin: 90px;
+}
+
+.imagem-parisntal-2 figcaption {
+  text-align: center;
+  font-size: 22px;
+}
+.linkbaixar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
 }
