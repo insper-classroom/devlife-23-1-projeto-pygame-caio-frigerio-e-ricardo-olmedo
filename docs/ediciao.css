@@ -1,16 +1,16 @@
 @keyframes color-change {
   0% { color: #f52f07; }
-  12% { color: #e77415; }
-  25% { color: #ffc800; }
+  12% { color: #1a008b; }
+  25% { color: #892d02; }
   37% { color: #d2400b; }
-  49% { color: #ee8906; }
-  62% { color: #e0c518; }
+  49% { color: #a14000; }
+  62% { color: #f83232; }
   74% { color: #9c0d0d; }
   86% { color: #e6880d; }
-  100% { color: #e6cf04; }
+  100% { color: #b300ffe2; }
 }/*base feita com ajuda do chatgpt, cores que o titulo vai oscilar*/
 h1 {
-  animation: color-change 6s infinite;
+  animation: color-change 2s infinite;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 40px;
@@ -37,6 +37,13 @@ h3 {text-align: center;
     }
 
 h4 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    padding: 40px 0;
+    position: relative;
+    }
+  h5 {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
@@ -74,7 +81,7 @@ p {
 }
 .titulo {
   background-size: cover;
-  background-color: white;
+  background-color: rgb(250, 193, 86);
   height: 100px;
   position: relative;
 }
@@ -128,3 +135,16 @@ p {
   align-items: center;
   font-size: 34px;
 }
+/*estilizacao da area de desevolvedores*/
+.pessoas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 90px ; 
+}
+
+.pessoas figure {
+  margin: 90px;
+  font-size: larger;;
+}
+
