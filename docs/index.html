@@ -1,53 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <title>Jogo da Cobrinha</title>
+    <title>Dragon rage</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="sprites/reset.css">
     <link rel="stylesheet" href="ediciao.css">
   </head>
   <body>
-    <h1>Jogo da Cobrinha</h1>
-    <p>video de apresentacao do jogo</p>
-    <iframe src="jogo.html" width="1024" height="720"></iframe>
+    <div class="titulo">
+    <h1>Dragon rage</h1>
+    <img src="sprites/copia_lado_direito.png" height=50 width= 50 class="dragao dragao-direita" >
+    <div class="cuspindo cuspindo-ladoesquerdo"></div>
+    <img src="sprites/1.png" class="dragao dragao-esquerda" >
+    <div class="cuspindo cuspindo-ladodireito"></div>
+    </div>
+    
+    <div class="video">
+    <p>video de apresentacao do jogo+algumas informacoes do game</p>
+    <!-- usar <br> para quebrar linhas do texto-->
+    <iframe src="sprites/gifporshce.gif" width="500" height="312"></iframe>
+    </div>
     <h2>Sobre o jogo</h2>
     <p>Aqui sera escrito qual a ideia do jogo e algumas imagens</p>
-    <iframe src="jogo.html" width="512" height="360"></iframe>
-    <p>Texto sobre a imagem</p>
-    <iframe src="jogo.html" width="512" height="360"></iframe>
-    <p>Texto sobre a imagem</p>
-    <iframe src="jogo.html" width="512" height="360"></iframe>
-    <p>Texto sobre a imagem</p>
-    <iframe src="jogo.html" width="512" height="360"></iframe>
-    <p>Texto sobre a imagem</p>
+    <div class="imagem-par">
+      <figure>
+        <img src="sprites/Gatomaluco2.jpg">
+        <figcaption>Legenda da imagem 1</figcaption>
+      </figure>
+      <figure>
+        <img src="sprites/Gatomaluco2.jpg">
+        <figcaption>Legenda da imagem 2</figcaption>
+      </figure>
+    </div>
+    </div>
     <h3>Instalação</h3>
+    <div class="imagem-parisntal-1">
+      <figure>
+        <img src="sprites/Screenshot_34.png"width="600" height="480">
+        <figcaption>Apos a Instalação ser concluida extraia a pasta</figcaption>
+      </figure>
+      <figure>
+        <img src="sprites/Screenshot_35.png" width="600" height="480">
+        <figcaption>Abra seu editor de codigo e selecione abrir pasta<br>(caso nao tenha um recomendamos o <a href="https://code.visualstudio.com/download" target="_blank">VSCode</a>.
+          )
+        </figcaption>
+      </figure>
+    </div>
+    <div class="imagem-parisntal-2">
+      <figure>
+        <img src="sprites/Gatomaluco2.jpg" width="600" height="480">
+        <figcaption>Legenda da imagem 1</figcaption>
+      </figure>
+      <figure>
+        <iframe width="600" height="485" src="https://www.youtube.com/embed/iFi3BjaBlqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <figcaption>Video de Instalação</figcaption>
+      </figure>
+    </div>
+  <a href="https://github.com/insper-classroom/devlife-23-1-projeto-pygame-caio-frigerio-e-ricardo-olmedo/archive/refs/heads/main.zip" class="linkbaixar"download="nome_do_arquivo.zip">
+      Baixar arquivo 
+    </a>
     <h4>Como jogar</h4>
     <p>Como jogar o jogo<br>
     explicando como joga o jogo
   </p>
-    <h4>Instalação</h4>
-    <p>Como instalar o jogo<br>
-    explicando como instalar o jogo<br>
-    <a href="https://github.com/insper-classroom/devlife-23-1-projeto-pygame-caio-frigerio-e-ricardo-olmedo/archive/refs/heads/main.zip" download="nome_do_arquivo.zip">
-      Baixar arquivo
-    </a>
-    
-
-
     <h5>Desenvolvedores</h5>
+    <div class="pessoas">
+      <figure>
     <p>Ricardo Olmedo Lins<br>
       <a href="https://github.com/Ricardoolm" target="_blank">
         <i class="fab fa-github"></i> GitHub
       </a><br>
       <a href="https://www.instagram.com/rlins6/" target="_blank">
         <i class="fab fa-instagram"></i> Instagram
-      </a><br></p>
+      </a></figure></p>
+      <figure>
     <p>Caio Frigerio Liberal<br>
       <a href="https://github.com/Caiolib" target="_blank">
         <i class="fab fa-github"></i> GitHub
       </a><br>
       <a href="https://www.instagram.com/caioliberal/" target="_blank">
         <i class="fab fa-instagram"></i> Instagram
-      </a><br>
-    </p>
+      </a>
+    </figure></p></div>
   </body>
 </html>

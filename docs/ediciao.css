@@ -1,22 +1,159 @@
 @keyframes color-change {
-  0% { color: #00FF00; }
-  12% { color: #33FF33; }
-  25% { color: #52af52; }
-  37% { color: #087d08; }
-  49% { color: #66FF66; }
-  62% { color: #04b269; }
-  74% { color: #4afe08; }
-  86% { color: #276112; }
-  95% { color: #99FF99; }
-  100% { color: rgb(64, 103, 0); }
-}/*base feita com ajuda do chatgpt*/
+  0% { color: #f52f07; }
+  12% { color: #1a008b; }
+  25% { color: #892d02; }
+  37% { color: #d2400b; }
+  49% { color: #a14000; }
+  62% { color: #f83232; }
+  74% { color: #9c0d0d; }
+  86% { color: #e6880d; }
+  100% { color: #b300ffe2; }
+}/*base feita com ajuda do chatgpt, cores que o titulo vai oscilar*/
 h1 {
-  animation: color-change 6s infinite;;
-}
-body {
-    background-color: whitesmoke;
+  animation: color-change 2s infinite;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 40px;
+  padding: 40px 0;
+  position: relative;
+  }
+h2 {
+  color: #7A6B4E;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 40px;
+  padding: 40px 0;
+  position: relative;
+  }
+h3 {
+  color: #7A6B4E;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 40px;
+  padding: 40px 0;
+  position: relative;
+  }
+  h3 p {
+    color: #7A6B4E;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 10000000px;
+    padding: 40px 0;
+    position: relative;
+    }
+
+h4 {
+    color: #7A6B4E;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    padding: 40px 0;
+    position: relative;
+    }
+   h5 {
+    color: #7A6B4E;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    padding: 40px 0;
+    position: relative;
+    }
+body {font-size: 20px;
+  color: #7A6B4E;
+    background-color:rgb(250, 193, 86);
+    text-align: center;
   }
 
 p {
-  color: black;
+  color: #7A6B4E;
 }
+/*Onde vai ficar o video e a ideia do jogo e sua estilizacao*/
+.video {
+  display: flex;
+  justify-content: space-around;
+  text-align: top;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  }
+/*estilizacao do titulo*/
+.dragao {  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 100px;
+}
+.dragao-esquerda {
+  left: 25%;
+}
+
+.dragao-direita {
+  right: 25%;
+}
+.titulo {
+  background-size: cover;
+  background-color: rgb(250, 193, 86);
+  height: 100px;
+  position: relative;
+}
+/*estilizacao das imagens*/
+.imagem-par {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-par figure {
+  margin: 90px;
+}
+
+.imagem-par figcaption {
+  text-align: center;
+  font-size: 22px;
+}
+/*estilizacao do download*/
+.imagem-parisntal-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-parisntal-1 figure {
+  margin: 90px;
+}
+
+.imagem-parisntal-1 figcaption {
+  text-align: center;
+  font-size: 22px;
+}
+.imagem-parisntal-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-parisntal-2 figure {
+  margin: 90px;
+}
+
+.imagem-parisntal-2 figcaption {
+  text-align: center;
+  font-size: 22px;
+}
+.linkbaixar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+}
+/*estilizacao da area de desevolvedores*/
+.pessoas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 90px ; 
+}
+
+.pessoas figure {
+  margin: 90px;
+  font-size: larger;;
+}
+
