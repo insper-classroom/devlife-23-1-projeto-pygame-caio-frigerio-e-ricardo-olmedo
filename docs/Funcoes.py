@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 class Ponto:
     def __init__(self):
         pygame.init()
@@ -125,14 +126,3 @@ class Ponto:
                 self.state['coracao_pos'].remove(coracao)
                 self.vida += 1
                 print(self.vida)
-
-
-if __name__ == '__main__':
-    ponto = Ponto()
-    ponto.cauda()
-    while ponto.recebe_evento(ponto.state['tecla']):
-        ponto.colisao()
-        ponto.desenha_coracao()
-        ponto.desenha()
-        
-

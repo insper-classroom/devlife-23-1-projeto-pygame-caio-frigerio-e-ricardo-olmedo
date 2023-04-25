@@ -31,4 +31,4 @@ tela_inicio.desenha()
 tela_inicio.recebe_evento()
 
 # Finaliza o Pygame
-pygame.quit()
+#pygame.quit()
