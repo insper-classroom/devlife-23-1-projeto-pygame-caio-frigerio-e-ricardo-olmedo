@@ -153,11 +153,12 @@ class Ponto:
         pos = (self.assets['dragao_pos'][0], self.assets['dragao_pos'][1])
         print(self.assets['dragao_pos'][0], " ", self.assets['dragao_pos'][1])
         for i in range(self.caudas):
-            self.state['caudas_obj'][i].posicao = (self.state['cauda_pos'][i][0], self.state['cauda_pos'][i][1])
+        #    self.state['caudas_obj'][i].posicao = (self.state['cauda_pos'][i][0], self.state['cauda_pos'][i][1])
+            self.state['caudas_obj'][i].posicao = pos
             self.state['caudas_obj'][i].direcao = self.state['tecla']
 
             self.window.blit(self.dragao_corpo_s, (pos[0], pos[1]))
-            pos = (self.state['caudas_obj'][i].posicao[0], self.state['caudas_obj'][i].posicao[1])
+            pos = (self.state['caudas_obj'][i].posicao[0]+ i *30, self.state['caudas_obj'][i].posicao[1])
  
           
             print('vlit ',self.state['caudas_obj'][i].posicao)
