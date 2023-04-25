@@ -1,5 +1,5 @@
 import pygame
-
+import random
 class Ponto:
     def __init__(self):
         pygame.init()
@@ -11,7 +11,11 @@ class Ponto:
         dragao_ini_e = pygame.image.load('sprites/dragaoo_cab_esq.png')
         dragao_ini_c = pygame.image.load('sprites/dragaoo_cab_cima.png')
         dragao_ini_d = pygame.image.load('sprites/dragaoo_cab_direita.png')
-        guarda = pygame.image.load('sprites/guarda.png')
+        
+        corcao = pygame.image.load('sprites/coracao.png')
+        coracao_true = pygame.transform.scale(corcao, (90, 40))
+        sprite_g = pygame.image.load('sprites/guarda.png')
+        guarda = pygame.transform.scale(sprite_g, (130, 150))
         dragao_co = pygame.image.load('sprites/dragao_corpo.png')
         plano = pygame.image.load('sprites/portaa_f.png')
         plano_de_fundo = pygame.transform.scale(plano, (1024, 720))
@@ -22,20 +26,30 @@ class Ponto:
         self.dragao_img_c = pygame.transform.scale(dragao_ini_c, (67, 56))
         self.direcao = pygame.math.Vector2(2,2)
         self.velo = 2
+        self.vida = 1
+        self.coracao = 5
+        #react dragao 
+        #largura = nave_tam.get_width()
+        #alatura = nave_tam.get_height()
+        #rect_dragao = pygame.Rect(300,400, largura, altura)
+      #  self.
         self.assets = {
             'dragao_pos': [50, 100],
             'dragao_img': self.dragao_img_b,
             'dragao_corpo': dragao_corpo,
             'fundo_de_tela': plano_de_fundo,
             'guarda': guarda,
+            'coracao': coracao_true,
+            
         }
 
         self.state = {
             'tecla': 'direita',
             'pos_anterior': [0, 0],
+            'coracao_pos': [],
         
-
         }
+        
         
     def recebe_evento(self, tecla):       
         for event in pygame.event.get():
@@ -77,30 +91,48 @@ class Ponto:
                 self.assets['dragao_pos'][1] += self.direcao.y * self.velo
                 self.tick = agora
         
+
         return True, self.state['tecla']
 
     def cauda(self):
-        pass
-
-
-    def atualiza_estado(self):
-        pass
-
-
-
-    def desenha(self):
-        self.window.blit(self.assets['fundo_de_tela'], (0, 0))
-     
-        self.window.blit(self.assets['dragao_corpo'], (self.state['pos_anterior'][0], self.state['pos_anterior'][1]))
-        self.window.blit(self.assets['guarda'], (200,300) )
-        self.window.blit(self.assets['dragao_img'], (self.assets['dragao_pos'][0], self.assets['dragao_pos'][1]))
+        larg = self.assets['coracao'].get_width()
+        alt = self.assets['coracao'].get_height()
+        for i in range(10):
+            x = random.randint(0, 1024 - larg)
+            y = random.randint(0, 720 - alt) 
+            if [x,y] not in self.state['coracao_pos']:
+                rect = pygame.Rect(x,y, larg, alt)
+                self.state['coracao_pos'].append(rect)
         
+
+    def desenha_coracao(self):
+        self.window.blit(self.assets['fundo_de_tela'], (0, 0))
+        for coracao in self.state['coracao_pos']:
+            self.window.blit(self.assets['coracao'], (coracao[0], coracao[1]))
+            print(len(self.state['coracao_pos']))
+        
+    def desenha(self):
+        
+        
+        self.window.blit(self.assets['dragao_corpo'], (self.state['pos_anterior'][0], self.state['pos_anterior'][1]))
+        self.window.blit(self.assets['guarda'], (20,20) )
+        self.window.blit(self.assets['dragao_img'], (self.assets['dragao_pos'][0], self.assets['dragao_pos'][1]))
         pygame.display.update()
+
+    def colisao(self):
+        for coracao in self.state['coracao_pos']:
+            if coracao.colliderect(self.assets['dragao_pos']):
+                self.state['coracao_pos'].remove(coracao)
+                self.vida += 1
+                print(self.vida)
 
 
 if __name__ == '__main__':
     ponto = Ponto()
-    
+    ponto.cauda()
     while ponto.recebe_evento(ponto.state['tecla']):
         
+        ponto.desenha_coracao()
         ponto.desenha()
+        
+
