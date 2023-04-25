@@ -29,12 +29,12 @@ class Ponto:
         self.vida = 1
         self.coracao = 5
         #react dragao 
-        #largura = nave_tam.get_width()
-        #alatura = nave_tam.get_height()
-        #rect_dragao = pygame.Rect(300,400, largura, altura)
-      #  self.
+        largura = self.dragao_img_c.get_width()
+        altura = self.dragao_img_c.get_height()
+        rect_dragao = pygame.Rect(200,300, largura, altura)
+  
         self.assets = {
-            'dragao_pos': [50, 100],
+            'dragao_pos': rect_dragao,
             'dragao_img': self.dragao_img_b,
             'dragao_corpo': dragao_corpo,
             'fundo_de_tela': plano_de_fundo,
@@ -109,7 +109,7 @@ class Ponto:
         self.window.blit(self.assets['fundo_de_tela'], (0, 0))
         for coracao in self.state['coracao_pos']:
             self.window.blit(self.assets['coracao'], (coracao[0], coracao[1]))
-            print(len(self.state['coracao_pos']))
+            print(self.vida)
         
     def desenha(self):
         
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     ponto = Ponto()
     ponto.cauda()
     while ponto.recebe_evento(ponto.state['tecla']):
-        
+        ponto.colisao()
         ponto.desenha_coracao()
         ponto.desenha()
         
