@@ -2,12 +2,11 @@ from telainicio import *
 from Funcoes import *
 ponto = Ponto()
 tela_inicio = tela_inicio()
-if __name__=="__main__":
+if __name__ == '__main__':
     tela_inicio.desenha()
-    ponto.cauda()
+    ponto.coracao_spw()
     while ponto.recebe_evento(ponto.state['tecla']):
-            ponto.colisao()
-            ponto.desenha_coracao()
-            ponto.desenha()
-
+        ponto.colisao()
+        ponto.desenha_coracao()
+        ponto.desenha()
         

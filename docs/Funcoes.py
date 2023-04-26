@@ -1,7 +1,5 @@
 import pygame
 import random
-import math
-
 
 class cauda:
     def __init__(self):
@@ -184,14 +182,4 @@ class Ponto:
                 self.state['caudas_obj'][self.caudas - 1].posicao = (self.state['pos_anterior'][0], self.state['pos_anterior'][1])
                 self.state['caudas_obj'][self.caudas - 1].direcao = self.state['tecla']
             
-
-if __name__ == '__main__':
-    ponto = Ponto()
-    ponto.coracao_spw()
-    while ponto.recebe_evento(ponto.state['tecla']):
-        ponto.colisao()
-        ponto.desenha_coracao()
-        ponto.desenha()
-        
-
 
