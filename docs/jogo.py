@@ -15,5 +15,5 @@ if __name__ == '__main__':
             ponto.desenha_coracao()
             ponto.desenha()
         tela_over.desenha()
-        if tela_over.recebe_evento()==True or ponto.recebe_evento(ponto.state['tecla'])==False:
+        if tela_over.recebe_evento()==True:
             rodando = False

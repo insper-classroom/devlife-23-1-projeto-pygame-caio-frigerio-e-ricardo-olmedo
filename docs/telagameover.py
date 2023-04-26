@@ -19,6 +19,7 @@ class gameover:
                   if eventos.key == pygame.K_RETURN:#se apertar enter recomeca o jogo
                       game_zero=False
                       return game_zero
+        return game_zero
     def desenha(self):
         self.window.fill((0,0,0))#fundo preto
         text = self.fonte.render("O CASTELO SOBREVIVE", True, (255, 255, 255))#titulo
