@@ -6,6 +6,7 @@ class SNAKE:
 		self.body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
 		self.direction = Vector2(0,0)
 		self.new_block = False
+		self.remove_blocks = False
 
 		self.head_up = pygame.image.load('sprites/assets_dragao/dragaoo_cab (4).png').convert_alpha()
 		self.head_down = pygame.image.load('sprites/assets_dragao/dragaoo_cab (2).png').convert_alpha()
@@ -71,6 +72,14 @@ class SNAKE:
 		elif tail_relation == Vector2(0,-1): self.tail = self.tail_down
 
 	def move_snake(self):
+		if self.remove_blocks == True:
+			body_copy = self.body[:-1]
+			print(body_copy)
+			body_copy.remove(body_copy[-1])
+			print(body_copy)
+			self.body = body_copy[:]
+		
+			self.remove_blocks = False
 		if self.new_block == True:
 			body_copy = self.body[:]
 			body_copy.insert(0,body_copy[0] + self.direction)
@@ -83,6 +92,9 @@ class SNAKE:
 
 	def add_block(self):
 		self.new_block = True
+
+	def remove_block(self):
+		self.remove_blocks = True
 
 	def play_crunch_sound(self):
 		pass
@@ -115,6 +127,7 @@ class GUARDA:
 	def draw_monster(self):
 		guarda_react = pygame.Rect(int(self.pos.x * cell_size),int(self.pos.y * cell_size),cell_size,cell_size)
 		screen.blit(guarda,guarda_react)
+
 	def randomize(self):
 
 		self.x = random.randint(0,cell_number - 1)
@@ -146,12 +159,13 @@ class MAIN:
 			self.snake.play_crunch_sound()
 		
 		if self.snake.body[0] == self.guarda.pos:
+			print(self.snake.body[0], '', self.guarda.pos)
 			self.guarda.vida -=1
-			self.guarda.randomize()
-			print(self.guarda.pos)
+			self.snake.remove_block()
+			
+			
 
-		if self.guarda.vida == 0:
-			fase = True
+	
 			
 
 		for block in self.snake.body[1:]:
@@ -181,7 +195,7 @@ pygame.display.set_caption("Jogo Dragao")
 clock = pygame.time.Clock()
 apple = pygame.image.load('sprites/apple.png').convert_alpha()
 guarda = pygame.image.load('sprites/guarda_real.png')
-#plano_de_fundo = pygame.transform.scale(guarda_def,)
+
 plano = pygame.image.load('sprites/portaa_f.png')
 plano_de_fundo = pygame.transform.scale(plano, (cell_number * cell_size,cell_number * cell_size))
 
