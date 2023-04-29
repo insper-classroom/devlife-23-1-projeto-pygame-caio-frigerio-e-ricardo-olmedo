@@ -25,6 +25,11 @@ class SNAKE:
 		self.body_tl = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_e.png').convert_alpha()
 		self.body_br = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_d.png').convert_alpha()
 		self.body_bl = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_d.png').convert_alpha()
+
+		self.barra_100 = pygame.image.load('sprites/barra_vida/100.png').convert_alpha()
+		self.barra_100 = pygame.image.load('sprites/barra_vida/66.png').convert_alpha()
+		self.barra_100 = pygame.image.load('sprites/barra_vida/33.png').convert_alpha()
+		self.barra_100 = pygame.image.load('sprites/barra_vida/0.png').convert_alpha()
 		
 
 	def draw_snake(self):
@@ -127,6 +132,8 @@ class GUARDA:
 	def draw_monster(self):
 		guarda_react = pygame.Rect(int(self.pos.x * cell_size),int(self.pos.y * cell_size),cell_size,cell_size)
 		screen.blit(guarda,guarda_react)
+		#if self.vida == 3:
+
 
 	def randomize(self):
 
@@ -161,13 +168,10 @@ class MAIN:
 		if self.snake.body[0] == self.guarda.pos:
 			print(self.snake.body[0], '', self.guarda.pos)
 			self.guarda.vida -=1
+			print(self.guarda.vida)
 			self.snake.remove_block()
 			
-			
-
-	
-			
-
+		
 		for block in self.snake.body[1:]:
 			if block == self.fruit.pos:
 				self.fruit.randomize()
