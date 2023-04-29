@@ -26,10 +26,7 @@ class SNAKE:
 		self.body_br = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_d.png').convert_alpha()
 		self.body_bl = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_d.png').convert_alpha()
 
-		self.barra_100 = pygame.image.load('sprites/barra_vida/100.png').convert_alpha()
-		self.barra_100 = pygame.image.load('sprites/barra_vida/66.png').convert_alpha()
-		self.barra_100 = pygame.image.load('sprites/barra_vida/33.png').convert_alpha()
-		self.barra_100 = pygame.image.load('sprites/barra_vida/0.png').convert_alpha()
+
 		
 
 	def draw_snake(self):
@@ -124,14 +121,22 @@ class FRUIT:
 		self.pos = Vector2(self.x,self.y)
 
 class GUARDA:
+	
+
+
 	def __init__(self):
 		self.randomize()
 		self.vida = 3
+		self.barra_100 = pygame.image.load('sprites/barra_vida/100.png').convert_alpha()
+		self.barra_66 = pygame.image.load('sprites/barra_vida/66.png').convert_alpha()
+		self.barra_33 = pygame.image.load('sprites/barra_vida/33.png').convert_alpha()
+		self.barra_0 = pygame.image.load('sprites/barra_vida/0.png').convert_alpha()
 
 
 	def draw_monster(self):
 		guarda_react = pygame.Rect(int(self.pos.x * cell_size),int(self.pos.y * cell_size),cell_size,cell_size)
 		screen.blit(guarda,guarda_react)
+		
 		#if self.vida == 3:
 
 
@@ -140,6 +145,11 @@ class GUARDA:
 		self.x = random.randint(0,cell_number - 1)
 		self.y = random.randint(0,cell_number - 1)
 		self.pos = Vector2(self.x,self.y)
+
+	def barra_vida(self):
+		guarda_react_bara = pygame.Rect(int(self.pos.x * cell_size),int(self.pos.y * cell_size),cell_size,cell_size)
+		if self.vida == 3:
+			screen.blit(self.barra_100,guarda_react_bara)
 
 
 class MAIN:
@@ -169,7 +179,9 @@ class MAIN:
 			print(self.snake.body[0], '', self.guarda.pos)
 			self.guarda.vida -=1
 			print(self.guarda.vida)
-			self.snake.remove_block()
+			if self.guarda.vida == 0:
+
+				self.snake.remove_block()
 			
 		
 		for block in self.snake.body[1:]:
