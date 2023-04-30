@@ -124,9 +124,6 @@ class FRUIT:
 		self.pos = Vector2(self.x,self.y)
 
 class GUARDA:
-	
-
-	
 	def __init__(self):
 		self.randomize()
 		self.vida = 3
@@ -173,7 +170,7 @@ class TEXTO:
 			
 	def imprimir(self):
 		impre = self.fonte.render(self.textos, 1,(255,255,255))
-		screen.blit(impre, (200,200))
+		screen.blit(impre, (220,40))
 		pygame.display.update()
 
 class MAIN:
@@ -182,6 +179,9 @@ class MAIN:
 		self.fruit = FRUIT()
 		self.guarda = GUARDA()
 		self.msg = TEXTO()
+		self.msg.textos = (f'Wave 1, Mate o guarda!')
+		self.fase = 1
+		self.fase_2 = pygame.image.load('sprites/fundo2.png').convert_alpha()
 	def update(self):
 		self.snake.move_snake()
 		self.check_collision()
@@ -193,8 +193,13 @@ class MAIN:
 		self.guarda.draw_monster()
 		self.msg.imprimir()
 		self.guarda.barra_vida()
+
+	def telas(self):
+		if self.fase == 2:
+			screen.blit(self.fase_2,(0,0))
 		
-	
+	def game_over(self):
+		self.snake.reset()
 
 	def check_collision(self):
 		if self.fruit.pos == self.snake.body[0]:
@@ -209,6 +214,8 @@ class MAIN:
 			print(self.guarda.vida)
 			self.snake.remove_block()
 			if self.guarda.vida == 0:
+				
+				self.fase = 2
 				self.guarda.vivo = False
 			
 		for block in self.snake.body[1:]:
@@ -223,8 +230,7 @@ class MAIN:
 			if block == self.snake.body[0]:
 				self.game_over()
 		
-	def game_over(self):
-		self.snake.reset()
+	
 
 
 
