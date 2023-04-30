@@ -89,8 +89,11 @@ class SNAKE:
 			self.new_block = False
 		else:
 			body_copy = self.body[:-1]
-			body_copy.insert(0,body_copy[0] + self.direction)
-			self.body = body_copy[:]
+			if len(body_copy) != 0:
+				body_copy.insert(0,body_copy[0] + self.direction)
+				self.body = body_copy[:]
+			else:
+				print("tela game over")
 
 	def add_block(self):
 		self.new_block = True
@@ -116,47 +119,69 @@ class FRUIT:
 		screen.blit(apple,fruit_rect)
 
 	def randomize(self):
-		self.x = random.randint(0,cell_number - 1)
-		self.y = random.randint(0,cell_number - 1)
+		self.x = random.randint(0,cell_number - 4)
+		self.y = random.randint(0,cell_number - 4)
 		self.pos = Vector2(self.x,self.y)
 
 class GUARDA:
 	
 
-
+	
 	def __init__(self):
 		self.randomize()
 		self.vida = 3
-		self.barra_100 = pygame.image.load('sprites/barra_vida/100.png').convert_alpha()
-		self.barra_66 = pygame.image.load('sprites/barra_vida/66.png').convert_alpha()
-		self.barra_33 = pygame.image.load('sprites/barra_vida/33.png').convert_alpha()
-		self.barra_0 = pygame.image.load('sprites/barra_vida/0.png').convert_alpha()
+		barra_100 = pygame.image.load('sprites/barra_vida/100.png').convert_alpha()
+		barra_66 = pygame.image.load('sprites/barra_vida/66.png').convert_alpha()
+		barra_33 = pygame.image.load('sprites/barra_vida/33.png').convert_alpha()
+		barra_0 = pygame.image.load('sprites/barra_vida/0.png').convert_alpha()
+		size_h = barra_100.get_height()
+		size_w = barra_100.get_width()
+		self.barra_100 = pygame.transform.scale(barra_100,(size_w/4 ,size_h/4))
+		self.barra_66 = pygame.transform.scale(barra_66,(size_w/4 ,size_h/4))
+		self.barra_33 = pygame.transform.scale(barra_33,(size_w/4 ,size_h/4))
+		self.barra_0 = pygame.transform.scale(barra_100,(size_w/4 ,size_h/4))
+		self.vivo = True
 
 
 	def draw_monster(self):
 		guarda_react = pygame.Rect(int(self.pos.x * cell_size),int(self.pos.y * cell_size),cell_size,cell_size)
-		screen.blit(guarda,guarda_react)
+		if self.vivo == True:
+			screen.blit(guarda,(guarda_react.x, guarda_react.y))
 		
-		#if self.vida == 3:
-
-
 	def randomize(self):
 
-		self.x = random.randint(0,cell_number - 1)
-		self.y = random.randint(0,cell_number - 1)
+		self.x = random.randint(0,cell_number - 3)
+		self.y = random.randint(0,cell_number - 3)
 		self.pos = Vector2(self.x,self.y)
 
 	def barra_vida(self):
 		guarda_react_bara = pygame.Rect(int(self.pos.x * cell_size),int(self.pos.y * cell_size),cell_size,cell_size)
+		if self.vida == 2:
+			screen.blit(self.barra_66,(guarda_react_bara.x - 104,guarda_react_bara.y + 50))
 		if self.vida == 3:
-			screen.blit(self.barra_100,guarda_react_bara)
+			screen.blit(self.barra_100,(guarda_react_bara.x - 104,guarda_react_bara.y + 50))
+		if self.vida == 1:
+			screen.blit(self.barra_33,(guarda_react_bara.x - 104,guarda_react_bara.y + 50))
+		
 
+
+class TEXTO:
+	def __init__(self):
+		pygame.font.init()
+		self.fonte = pygame.font.SysFont("arial", 50)
+		self.textos = ""
+			
+	def imprimir(self):
+		impre = self.fonte.render(self.textos, 1,(255,255,255))
+		screen.blit(impre, (200,200))
+		pygame.display.update()
 
 class MAIN:
 	def __init__(self):
 		self.snake = SNAKE()
 		self.fruit = FRUIT()
 		self.guarda = GUARDA()
+		self.msg = TEXTO()
 	def update(self):
 		self.snake.move_snake()
 		self.check_collision()
@@ -166,6 +191,8 @@ class MAIN:
 		self.fruit.draw_fruit()
 		self.snake.draw_snake()
 		self.guarda.draw_monster()
+		self.msg.imprimir()
+		self.guarda.barra_vida()
 		
 	
 
@@ -178,12 +205,12 @@ class MAIN:
 		if self.snake.body[0] == self.guarda.pos:
 			print(self.snake.body[0], '', self.guarda.pos)
 			self.guarda.vida -=1
+			self.msg.textos = (f'O GUARDA TEM {self.guarda.vida} de vida')
 			print(self.guarda.vida)
+			self.snake.remove_block()
 			if self.guarda.vida == 0:
-
-				self.snake.remove_block()
+				self.guarda.vivo = False
 			
-		
 		for block in self.snake.body[1:]:
 			if block == self.fruit.pos:
 				self.fruit.randomize()
@@ -209,7 +236,12 @@ cell_number = 20
 screen = pygame.display.set_mode((cell_number * cell_size,cell_number * cell_size))
 pygame.display.set_caption("Jogo Dragao")
 clock = pygame.time.Clock()
-apple = pygame.image.load('sprites/apple.png').convert_alpha()
+comida = pygame.image.load('sprites/comida.png').convert_alpha()
+size_h = comida.get_height()
+size_w = comida.get_width()
+apple = pygame.transform.scale(comida,(size_w/2 ,size_h/2))
+
+
 guarda = pygame.image.load('sprites/guarda_real.png')
 
 plano = pygame.image.load('sprites/portaa_f.png')
