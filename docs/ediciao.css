@@ -160,11 +160,18 @@ p {
   text-align: center;
   font-size: 22px;
 }
-.linkbaixar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 34px;
+.botao-download {
+  background-color: #7993b0;
+  color: #fff;
+  border: none;
+  padding: 25px 50px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
 }
 /*estilizacao da area de desevolvedores*/
 .pessoas{
