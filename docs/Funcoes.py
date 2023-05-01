@@ -7,20 +7,28 @@ class SNAKE:
 		self.direction = Vector2(0,0)
 		self.new_block = False
 		self.remove_blocks = False
-
-		self.head_up = pygame.image.load('sprites/assets_dragao/dragaoo_cab (4).png').convert_alpha()
-		self.head_down = pygame.image.load('sprites/assets_dragao/dragaoo_cab (2).png').convert_alpha()
-		self.head_right = pygame.image.load('sprites/assets_dragao/dragaoo_cab (5).png').convert_alpha()
-		self.head_left = pygame.image.load('sprites/assets_dragao/dragaoo_cab (3).png').convert_alpha()
+		imagemup = pygame.image.load('sprites/assets_dragao/dragaoo_cab (4).png').convert_alpha()
+		imagemdown = pygame.image.load('sprites/assets_dragao/dragaoo_cab (2).png').convert_alpha()
+		imagemright=pygame.image.load('sprites/assets_dragao/dragaoo_cab (5).png').convert_alpha()
+		imagemleft = pygame.image.load('sprites/assets_dragao/dragaoo_cab (3).png').convert_alpha()
+		self.head_up = pygame.transform.scale(imagemup, (90, 80))
+		self.head_down = pygame.transform.scale(imagemdown, (90, 80))
+		self.head_right = pygame.transform.scale(imagemright, (80, 90))
+		self.head_left = pygame.transform.scale(imagemleft, (80, 90))
 		
-		self.tail_up = pygame.image.load('sprites/assets_dragao/rabo_d (4).jpeg').convert_alpha()
-		self.tail_down = pygame.image.load('sprites/assets_dragao/rabo_d (2).jpeg').convert_alpha()
-		self.tail_right = pygame.image.load('sprites/assets_dragao/rabo_d.jpeg').convert_alpha()
-		self.tail_left = pygame.image.load('sprites/assets_dragao/rabo_d (3).jpeg').convert_alpha()
+		rabobaixo= pygame.image.load('sprites/assets_dragao/rabobaixo removebg.png').convert_alpha()
+		rabocima = pygame.image.load('sprites/assets_dragao/rabocima-removebg-preview.png').convert_alpha()
+		raboesquerda = pygame.image.load('sprites/assets_dragao/raboesqeurda-removebg-preview.png').convert_alpha()
+		rabodireita = pygame.image.load('sprites/assets_dragao/rabodireita-removebg-preview.png').convert_alpha()
+		self.tail_up =  pygame.transform.scale(rabobaixo, (70, 70))
+		self.tail_down = pygame.transform.scale(rabocima, (70, 70))
+		self.tail_right = pygame.transform.scale(raboesquerda, (70, 70))
+		self.tail_left = pygame.transform.scale(rabodireita, (70, 70))
 
 		self.body_vertical = pygame.image.load('sprites/assets_dragao/dragao_corpo (5).png').convert_alpha()
 		self.body_horizontal = pygame.image.load('sprites/assets_dragao/dragao_corpo (4).png').convert_alpha()
 
+		
 		self.body_tr = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_e.png').convert_alpha()
 		self.body_tl = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_e.png').convert_alpha()
 		self.body_br = pygame.image.load('sprites/assets_dragao/dragao_corpo_vira_d.png').convert_alpha()
