@@ -22,23 +22,11 @@ class tela_inicio:
         self.assets = {
             'fundo_de_tela': lista,
         }
-    # def recebe_evento(self):
-    #     self.rodando = True
-    #     while self.rodando:
-    #         for eventos in pygame.event.get():
-    #             if eventos.type == pygame.QUIT:
-    #                 self.rodando = False
-    #                 return False
-                    
-    #             elif eventos.type == pygame.KEYDOWN:
-    #                 self.rodando = False
-    #                 return False
-    #     return True
     def desenha(self):
         imagens = self.assets['fundo_de_tela']#variavel que recebe a lista de imagens
         i = 0
-        rodando = True
-        while rodando:#roda a tela inicial
+        self.rodando = True
+        while self.rodando:#roda a tela inicial
             valorizado = imagens[i]
             pygame.time.delay(40)#delay para trocar as imagens
             self.window.blit(valorizado, (0, 0))
@@ -66,8 +54,8 @@ class tela_inicio:
             pygame.display.update()
             for eventos in pygame.event.get():#condicao para terminar a tela inicial
                     if eventos.type == pygame.QUIT:
-                        rodando = False
-                        return rodando
+                        self.rodando = False
+                        return self.rodando
                     elif eventos.type == pygame.KEYDOWN:
                         self.window.fill((0,0,0))
                         pygame.mixer_music.stop()
@@ -82,5 +70,7 @@ class tela_inicio:
                         pygame.display.update()
                         self.som_dragao.play()
                         pygame.time.delay(5000)
-                        rodando = False
-                        return rodando
+                        self.rodando = False
+                        return self.rodando
+    def estado(self):
+        return self.rodando
