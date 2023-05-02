@@ -72,12 +72,12 @@ class tela_inicio:
                         self.window.fill((0,0,0))
                         pygame.mixer_music.stop()
                         texto_contorno_baixo = self.fonte_espera.render('Destrua o castelo', True, (255,160,0))#cria o contorno da espera
-                        texto_pos_baixo = texto_contorno_baixo.get_rect(center=(542, 360))
+                        texto_pos_baixo = texto_contorno_baixo.get_rect(center=(522, 360))
                         for posicao_baixo in [(3,0), (-3,0), (0,3), (0,-3)]:#move o contorno da espera
                             texto_pos_baixo.move_ip(*posicao_baixo)
                             pygame.display.get_surface().blit(texto_contorno_baixo, texto_pos_baixo)
                         texto_real_baixo = self.fonte_espera.render('Destrua o castelo', True, (255,255,255))#cria da espera
-                        texto_pos_baixo = texto_real_baixo.get_rect(center=(542, 360))
+                        texto_pos_baixo = texto_real_baixo.get_rect(center=(522, 360))
                         pygame.display.get_surface().blit(texto_real_baixo, texto_pos_baixo)#desenha o texto da espera
                         pygame.display.update()
                         self.som_dragao.play()

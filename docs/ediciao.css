@@ -9,6 +9,7 @@
   86% { color: #e6880d; }
   100% { color: #b300ffe2; }
 }/*base feita com ajuda do chatgpt, cores que o titulo vai oscilar*/
+/* estilizacao do titulo do site*/
 h1 {
   animation: color-change 2s infinite;
   text-align: center;
@@ -17,7 +18,8 @@ h1 {
   padding: 40px 0;
   position: relative;
   }
-h2 {
+/*estilizacao do sobre o jogo*/
+  h2 {
   color: #7A6B4E;
   text-align: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -25,6 +27,7 @@ h2 {
   padding: 40px 0;
   position: relative;
   }
+/*estilizacao da instalacao*/
 h3 {
   color: #7A6B4E;
   text-align: center;
@@ -37,11 +40,11 @@ h3 {
     color: #7A6B4E;
     text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 10000000px;
+    font-size: 40px;
     padding: 40px 0;
     position: relative;
     }
-
+/*estilizacao do como jogar*/
 h4 {
     color: #7A6B4E;
     text-align: center;
@@ -50,12 +53,31 @@ h4 {
     padding: 40px 0;
     position: relative;
     }
-   h5 {
+/*estilizacao do log de desenvolvimento*/
+h5 {
     color: #7A6B4E;
     text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 40px;
     padding: 40px 0;
+    position: relative;
+}
+h6{
+    color: #7A6B4E;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    padding: 40px 0;
+    position: relative;
+}
+/*estilizacao do desenvolvedores*/
+h7 {
+    color: #7A6B4E;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    margin-top: 50px;
+    padding: 0px 0;
     position: relative;
     }
 body {font-size: 20px;
@@ -138,22 +160,58 @@ p {
   text-align: center;
   font-size: 22px;
 }
-.linkbaixar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 34px;
+.botao-download {
+  background-color: #7993b0;
+  color: #fff;
+  border: none;
+  padding: 25px 50px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
 }
 /*estilizacao da area de desevolvedores*/
 .pessoas{
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 90px ; 
+  top: 0px ; 
 }
 
 .pessoas figure {
-  margin: 90px;
+  margin: 50px;
   font-size: larger;;
 }
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: 10%;
+}
+th, td {
+  border: 1px solid black;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 8px;
+}
+th {
+text-align: center;
+}
+.imagem-parheuris-1 {
 
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-parheuris-1 figure {
+  margin: 90px;
+}
+
+.imagem-parheuris-1 figcaption {
+  text-align: center;
+  font-size: 22px;}
+  .imagem-parheuris-1 figure img {
+    border: 4px solid black;
+  }
