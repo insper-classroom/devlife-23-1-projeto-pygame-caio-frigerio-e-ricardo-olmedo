@@ -180,6 +180,7 @@ class FRUIT:
 class GUARDA:
 	def __init__(self):
 		#carrega a sprite da barra de vida do personagem e as ajustas
+		
 		self.randomize()
 		self.vida = 3
 		barra_100 = pygame.image.load('sprites/barra_vida/100.png').convert_alpha()
@@ -221,7 +222,6 @@ class PONTO:
 		self.max_pontos = 0
 	def max(self):
 		#sistema de pontuacao maxima onde se a self.pontos for maior que self.max_pontos substitui ele
-		print(self.pontos,'', self.max_pontos)
 		if self.pontos > self.max_pontos:
 			self.max_pontos = self.pontos
 			
@@ -233,13 +233,21 @@ class TEXTO:
 		self.fonte = pygame.font.Font('sprites/8-BIT WONDER.TTF', 16)
 		self.textos = ""
 		self.max = ''
+		self.comeu = False
 			
 	def imprimir(self):
+		print(self.comeu)
+		if self.comeu == False:
+			self.mensagem = '!!!O Dragao so aceita comer a cabeca!!!'
+			impre_3 = self.fonte.render(self.mensagem,1, (255,0,0))
+			screen.blit(impre_3,(200,60))
 		#essa funcao faz todo o trabalho de blit dos textos da pontuacao
 		impre = self.fonte.render(self.textos, 1,(255,255,255))
 		impre_2 = self.fonte.render(self.max, 1,(255,255,255))
+		
 		screen.blit(impre, (40,20))
 		screen.blit(impre_2,(40,60))
+		
 		pygame.display.update()
 
 class MAIN:
@@ -253,7 +261,8 @@ class MAIN:
 		self.msg.textos = (f'Mate o guarda! & faca pontos!')
 		self.fase = 1
 		self.fase_2 = pygame.image.load('sprites/fundo2.png').convert_alpha()
-
+		self.espada = pygame.mixer.Sound('sprites/espada.mp3')#som espada
+		self.homen = pygame.mixer.Sound('sprites/homen.mp3')#som espada
 	#as 2 funcoes seguintes somente chamam funcoes para que possam acontecer	
 	def update(self):
 		self.snake.move_snake()
@@ -282,10 +291,13 @@ class MAIN:
 	def check_collision(self):
 		#essa funcoes verifica a colisao e a partiri disso faz as acoes necessarias, como randomizar a posicao da comida novamente,e adicionar os blocos pois novamente
 		if self.fruit.pos == self.snake.body[0]:
+			self.homen.play()
 			self.fruit.randomize()
 			self.snake.add_block()
-			self.snake.play_crunch_sound()
+			
 			self.pontos.pontos += 10
+			self.msg.comeu = True
+			
 			#adiciona 10 pontos por pegar a comida
 			self.msg.textos = (f'Pontos: {self.pontos.pontos}')
 			self.msg.max = (f'Maximo: {self.pontos.max_pontos}')
@@ -293,6 +305,7 @@ class MAIN:
 		if self.snake.body[0] == self.guarda.pos:
 			#verifica a colisao com o guarda e toma as acoes como perder vida do guarda 
 			self.guarda.vida -=1
+			self.espada.play()
 			self.snake.remove_block()
 			if self.guarda.vida == 0:
 				#quando mata o guarda multiplica a pontuacao total e atualiza sua vida para 3 e randomiza a posicao do guarda para que o jogador possa matar o guarda novamente
