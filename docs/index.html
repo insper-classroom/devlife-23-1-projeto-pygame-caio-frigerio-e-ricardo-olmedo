@@ -8,20 +8,21 @@
   </head>
   <body>
     <div class="titulo">
-    <h1>Dragon rage</h1>
-    <img src="sprites/copia_lado_direito.png" height=50 width= 50 class="dragao dragao-direita" >
+    <h1>Dragons rage</h1>
+    <img src="sprites/copia_lado_direito.png" class="dragao dragao-direita" >
     <div class="cuspindo cuspindo-ladoesquerdo"></div>
     <img src="sprites/1.png" class="dragao dragao-esquerda" >
     <div class="cuspindo cuspindo-ladodireito"></div>
     </div>
     
     <div class="video">
-    <p>video de apresentacao do jogo+algumas informacoes do game</p>
-    <!-- usar <br> para quebrar linhas do texto-->
     <iframe src="sprites/gifporshce.gif" width="500" height="312"></iframe>
+    <p>Dragons rage foi desenvolvido como projeto do curso de Ciência da Computação do Insper,<br> tendo como inspiração o clássico jogo da cobrinha do Nokia, mas com algumas modificações.<br> O objetivo é simples: comer os cidadãos que valem 10 pontos cada um e recuperam uma vida,<br>derrotar os guardas que causam 2 pontos de dano. O jogador começa com 0 pontos de vida e os<br> guardas, quando derrotados, dobram os pontos atuais do jogador. <br>Desafie-se e veja quantos pontos consegue acumular!</p>
     </div>
-    <h2>Sobre o jogo</h2>
-    <p>Aqui sera escrito qual a ideia do jogo e algumas imagens</p>
+    <h2>Como jogar</h2>
+    <p>Como este jogo foi baseado no classico jogo da cobrinha, para jogar e simples voce deve utilizar as setas do teclado.<br>
+      A seta para cima faz com que o dragão suba, a seta para baixo faz com que o dragão desça, a seta para a esquerda<br> faz com que o dragão vá para a esquerda e a seta para a direita faz com que o dragão vá para a direita.<br>
+      O objetivo do jogo é comer o maior numero cidadoes e matar os guardas.</p>
     <div class="imagem-par">
       <figure>
         <img src="sprites/Gatomaluco2.jpg">
@@ -36,11 +37,11 @@
     <h3>Instalação</h3>
     <div class="imagem-parisntal-1">
       <figure>
-        <img src="sprites/Screenshot_34.png"width="800" height="580">
+        <img src="sprites/Screenshot_5.png"width="640" height="420">
         <figcaption>Apos a Instalação ser concluida extraia a pasta.<br>guarde o caminho da pasta para facilitar a proxima etapa.</figcaption>
       </figure>
       <figure>
-        <img src="sprites/Screenshot_35.png" width="800" height="580">
+        <img src="sprites/Screenshot_35.png" width="640" height="420">
         <figcaption>Abra seu editor de codigo e selecione abrir pasta.<br>(caso nao tenha um recomendamos o <a href="https://code.visualstudio.com/download" target="_blank">VSCode</a>.
           )
         </figcaption>
@@ -48,21 +49,17 @@
     </div>
     <div class="imagem-parisntal-2">
       <figure>
-        <img src="sprites/Gatomaluco2.jpg" width="800" height="580">
+        <img src="sprites/Gatomaluco2.jpg" width="640" height="420">
         <figcaption>Legenda da imagem 1</figcaption>
       </figure>
       <figure>
-        <iframe width="800" height="585" src="https://www.youtube.com/embed/iFi3BjaBlqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="640" height="420" src="https://www.youtube.com/embed/iFi3BjaBlqk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <figcaption>Video de Instalação</figcaption>
       </figure>
     </div>
     <a href="https://github.com/insper-classroom/devlife-23-1-projeto-pygame-caio-frigerio-e-ricardo-olmedo/archive/refs/heads/main.zip" download title="Clique aqui para baixar o arquivo ZIP">
       <button type="button" class="botao-download">Download</button>
     </a>
-    <h4>Como jogar</h4>
-    <p>Como este jogo foi baseado no classico jogo da cobrinha, para jogar e simples voce deve utilizar as setas do teclado.<br>
-      A seta para cima faz com que o dragão suba, a seta para baixo faz com que o dragão desça, a seta para a esquerda faz com que o dragão vá para a esquerda e a seta para a direita faz com que o dragão vá para a direita.<br>
-      O objetivo do jogo é comer o maior numero cidadoes e matar os guardas.
     <h5>Log de Desenvolvimento</h5>
     <table>
       <thead>
@@ -105,12 +102,16 @@
   <td>Melhorando o jogo e adicionando barra de vida ao guarda</td>
 </tr>
 <tr>
-  <td>30/04/203</td>
+  <td>30/04/2023</td>
   <td>Barra de vida completa e sprites de comida</td>
 </tr>
 <tr>
-  <td>01/05/203</td>
+  <td>01/05/2023</td>
   <td>Aprimoramento das sprites e melhoria do site</td>
+</tr>
+<tr>
+  <td>02/05/2023</td>
+  <td>Entrega final do jogo e site</td>
 </tr>
       </tbody>
    </table>
@@ -118,15 +119,14 @@
     <h6>Avaliacao de heuristicas</h6>
     <div class="imagem-parheuris-1">
       <figure>
-        <img src="sprites/Screenshot_3.png"width="800" height="580">
+        <img src="sprites/Screenshot_3.png"width="640" height="420">
         <figcaption>Uma correção foi trocar a cor da fonte de preto para uma cor menos agressiva como chumbo.<br>
-          Outra correção foi a troca da fonte por uma mais moderna e de melhor leitura, e a adição de margem para melhorar a leitura.<br>
           Foi relatado o problema de não ter um botão que deixe claro o download do jogo.
         </figcaption>
       </figure>
       <figure>
-        <img src="sprites/Screenshot_4.png" width="800" height="580">
-        <figcaption>Correção para alterar a cor do titulo para a mesma do site e adicionar um titulo que muda de cor.
+        <img src="sprites/Screenshot_4.png" width="640" height="420" >
+        <figcaption>Correção para alterar a cor do titulo para a mesma do site e adicionar um titulo que muda de cor.<br>Outra correção foi a troca da fonte por uma mais moderna e de melhor leitura, e a adição de margem para melhorar a leitura.<br>
 
 
           
