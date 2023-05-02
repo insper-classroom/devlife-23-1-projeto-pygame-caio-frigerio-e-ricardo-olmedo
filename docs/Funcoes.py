@@ -199,16 +199,27 @@ class GUARDA:
 class PONTO:
 	def __init__(self):
 		self.pontos = 0
+		self.max_pontos = 0
+	def max(self):
+		
+		if self.pontos >= self.max_pontos:
+			print(self.max_pontos)
+			self.max_pontos = self.pontos
+			
 
 class TEXTO:
 	def __init__(self):
+		self.ponto = PONTO()
 		pygame.font.init()
 		self.fonte = pygame.font.SysFont("arial", 50)
 		self.textos = ""
+		self.max = (f'Ponto maximo: {self.ponto.max_pontos}')
 			
 	def imprimir(self):
 		impre = self.fonte.render(self.textos, 1,(255,255,255))
+		impre_2 = self.fonte.render(self.max, 1,(255,255,255))
 		screen.blit(impre, (220,40))
+		screen.blit(impre_2,(220,80))
 		pygame.display.update()
 
 class MAIN:
@@ -225,6 +236,7 @@ class MAIN:
 		self.snake.move_snake()
 		self.check_collision()
 		self.check_fail()
+		self.pontos.max()
 
 	def draw_elements(self):
 		self.fruit.draw_fruit()
@@ -237,6 +249,9 @@ class MAIN:
 
 	def game_over(self):
 		self.snake.reset()
+		self.pontos.pontos = 0
+		self.msg.textos = (f'Pontos: {self.pontos.pontos}')
+		self.guarda.vida = 3
 
 	def check_collision(self):
 		if self.fruit.pos == self.snake.body[0]:
@@ -244,6 +259,7 @@ class MAIN:
 			self.snake.add_block()
 			self.snake.play_crunch_sound()
 			self.pontos.pontos += 10
+			self.msg.textos = (f'Pontos: {self.pontos.pontos}')
 		
 		if self.snake.body[0] == self.guarda.pos:
 			print(self.snake.body[0], '', self.guarda.pos)
@@ -253,6 +269,7 @@ class MAIN:
 			self.snake.remove_block()
 			if self.guarda.vida == 0:
 				self.pontos.pontos *=2
+				self.msg.textos = (f'Pontos: {self.pontos.pontos}')
 				self.fase = 2
 				self.guarda.randomize()
 				self.guarda.vida = 3
