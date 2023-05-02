@@ -26,10 +26,10 @@ class SNAKE:
 		rabocima = pygame.image.load('sprites/assets_dragao/rabocima-removebg-preview.png').convert_alpha()
 		raboesquerda = pygame.image.load('sprites/assets_dragao/raboesqeurda-removebg-preview.png').convert_alpha()
 		rabodireita = pygame.image.load('sprites/assets_dragao/rabodireita-removebg-preview.png').convert_alpha()
-		self.tail_up =  pygame.transform.scale(rabobaixo, (size_ww/3, size_hh/3))
-		self.tail_down = pygame.transform.scale(rabocima, (size_ww/3, size_hh/3))
-		self.tail_right = pygame.transform.scale(raboesquerda, (size_ww/3, size_hh/3))
-		self.tail_left = pygame.transform.scale(rabodireita, (size_ww/3, size_hh/3))
+		self.tail_up =  pygame.transform.scale(rabobaixo, (size_ww/4, size_hh/4))
+		self.tail_down = pygame.transform.scale(rabocima, (size_ww/4, size_hh/4))
+		self.tail_right = pygame.transform.scale(raboesquerda, (size_ww/4, size_hh/4))
+		self.tail_left = pygame.transform.scale(rabodireita, (size_ww/4, size_hh/4))
 
 		
         
@@ -56,6 +56,8 @@ class SNAKE:
 		self.body_tl = pygame.transform.scale(body_tl, (size_corpo_turn_w/5, size_corpo_turn_h/5))
 		self.body_br = pygame.transform.scale(body_br, (size_corpo_turn_w/5, size_corpo_turn_h/5))
 		self.body_bl = pygame.transform.scale(body_bl, (size_corpo_turn_w/5, size_corpo_turn_h/5))
+		
+		
 
 
 		
@@ -201,21 +203,23 @@ class PONTO:
 		self.pontos = 0
 		self.max_pontos = 0
 	def max(self):
-		
-		if self.pontos >= self.max_pontos:
-			print(self.max_pontos)
+		print(self.pontos,'', self.max_pontos)
+		if self.pontos > self.max_pontos:
 			self.max_pontos = self.pontos
 			
 
 class TEXTO:
 	def __init__(self):
 		self.ponto = PONTO()
+		self.fonte = pygame.font.Font('sprites/8-BIT WONDER.TTF', 16)
 		pygame.font.init()
-		self.fonte = pygame.font.SysFont("arial", 50)
+		
 		self.textos = ""
-		self.max = (f'Ponto maximo: {self.ponto.max_pontos}')
+		self.max = ''
 			
 	def imprimir(self):
+		
+		
 		impre = self.fonte.render(self.textos, 1,(255,255,255))
 		impre_2 = self.fonte.render(self.max, 1,(255,255,255))
 		screen.blit(impre, (220,40))
@@ -236,12 +240,13 @@ class MAIN:
 		self.snake.move_snake()
 		self.check_collision()
 		self.check_fail()
-		self.pontos.max()
+		
 
 	def draw_elements(self):
 		self.fruit.draw_fruit()
 		self.snake.draw_snake()
 		self.guarda.draw_monster()
+		self.pontos.max()
 		self.msg.imprimir()
 		self.guarda.barra_vida()
 
@@ -251,6 +256,7 @@ class MAIN:
 		self.snake.reset()
 		self.pontos.pontos = 0
 		self.msg.textos = (f'Pontos: {self.pontos.pontos}')
+		self.msg.max = (f'Maximo: {self.pontos.max_pontos}')
 		self.guarda.vida = 3
 
 	def check_collision(self):
@@ -260,6 +266,7 @@ class MAIN:
 			self.snake.play_crunch_sound()
 			self.pontos.pontos += 10
 			self.msg.textos = (f'Pontos: {self.pontos.pontos}')
+			self.msg.max = (f'Maximo: {self.pontos.max_pontos}')
 		
 		if self.snake.body[0] == self.guarda.pos:
 			print(self.snake.body[0], '', self.guarda.pos)
@@ -270,6 +277,7 @@ class MAIN:
 			if self.guarda.vida == 0:
 				self.pontos.pontos *=2
 				self.msg.textos = (f'Pontos: {self.pontos.pontos}')
+				self.msg.max = (f'Maximo: {self.pontos.max_pontos}')
 				self.fase = 2
 				self.guarda.randomize()
 				self.guarda.vida = 3
@@ -294,7 +302,7 @@ class MAIN:
 
 pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
-cell_size = 50
+cell_size = 43
 cell_number = 20
 screen = pygame.display.set_mode((cell_number * cell_size,cell_number * cell_size))
 pygame.display.set_caption("Jogo Dragao")
