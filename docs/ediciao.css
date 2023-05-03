@@ -90,7 +90,6 @@ p {
 }
 /*Onde vai ficar o video e a ideia do jogo e sua estilizacao*/
 .video {margin-top: 240px;
-
   justify-content: center;
 }
 .video figcaption {
@@ -204,7 +203,7 @@ text-align: center;
 .imagem-parheuris-1 {
   display: flex;
   justify-content: center;
-  margin-bottom: 70px;
+  margin-bottom: 100px;
 }
 
 .imagem-parheuris-1 figure {
