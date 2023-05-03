@@ -104,8 +104,6 @@ class SNAKE:
 
 	def update_head_graphics(self):
 		#aqui atualiza e desenha o grafico da cabeca 
-		if len(self.body) == 0:
-			print('game over')
 		head_relation = self.body[1] - self.body[0]
 		if head_relation == Vector2(1,0): self.head = self.head_left
 		elif head_relation == Vector2(-1,0): self.head = self.head_right
@@ -140,7 +138,7 @@ class SNAKE:
 				body_copy.insert(0,body_copy[0] + self.direction)
 				self.body = body_copy[:]
 			else:
-				print("tela game over")
+				pass#print("tela game over")
 
 	def add_block(self):
 		#funcao para adicionar corpo
@@ -236,7 +234,7 @@ class TEXTO:
 		self.comeu = False
 			
 	def imprimir(self):
-		print(self.comeu)
+	
 		if self.comeu == False:
 			self.mensagem = '!!!O Dragao so aceita comer a cabeca!!!'
 			impre_3 = self.fonte.render(self.mensagem,1, (255,0,0))
@@ -303,10 +301,14 @@ class MAIN:
 			self.msg.max = (f'Maximo: {self.pontos.max_pontos}')
 		
 		if self.snake.body[0] == self.guarda.pos:
-			#verifica a colisao com o guarda e toma as acoes como perder vida do guarda 
-			self.guarda.vida -=1
-			self.espada.play()
-			self.snake.remove_block()
+			print(len(self.snake.body), 'oi')
+			if len(self.snake.body) != 0 and len(self.snake.body) != 1 and len(self.snake.body) != 3:
+				print(len(self.snake.body), 'sss')
+				#verifica a colisao com o guarda e toma as acoes como perder vida do guarda 
+				self.guarda.vida -=1
+				self.espada.play()
+				
+				self.snake.remove_block()
 			if self.guarda.vida == 0:
 				#quando mata o guarda multiplica a pontuacao total e atualiza sua vida para 3 e randomiza a posicao do guarda para que o jogador possa matar o guarda novamente
 				self.pontos.pontos *=2
