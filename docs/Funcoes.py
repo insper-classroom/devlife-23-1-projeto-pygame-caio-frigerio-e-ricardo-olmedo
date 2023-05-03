@@ -60,11 +60,6 @@ class SNAKE:
 		self.body_br = pygame.transform.scale(body_br, (size_corpo_turn_w/5, size_corpo_turn_h/5))
 		self.body_bl = pygame.transform.scale(body_bl, (size_corpo_turn_w/5, size_corpo_turn_h/5))
 		
-		
-
-
-		
-
 	def draw_snake(self):
 		
 		self.update_tail_graphics()
@@ -137,8 +132,6 @@ class SNAKE:
 			if len(body_copy) != 0:
 				body_copy.insert(0,body_copy[0] + self.direction)
 				self.body = body_copy[:]
-			else:
-				pass#print("tela game over")
 
 	def add_block(self):
 		#funcao para adicionar corpo
@@ -148,16 +141,10 @@ class SNAKE:
 		#funcao para remover
 		self.remove_blocks = True
 
-	def play_crunch_sound(self):
-		#som de fundo
-		pass
-		
-
 	def reset(self):
 		#reseta a direcao do dragao
 		self.body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
 		self.direction = Vector2(0,0)
-
 
 class FRUIT:
 	def __init__(self):
@@ -223,7 +210,6 @@ class PONTO:
 		if self.pontos > self.max_pontos:
 			self.max_pontos = self.pontos
 			
-
 class TEXTO:
 	def __init__(self):
 		#essa classe faz a funcoes de inicializar a fonte e renderizar elas no jogo
@@ -261,13 +247,18 @@ class MAIN:
 		self.fase_2 = pygame.image.load('sprites/fundo2.png').convert_alpha()
 		self.espada = pygame.mixer.Sound('sprites/espada.mp3')#som espada
 		self.homen = pygame.mixer.Sound('sprites/homen.mp3')#som espada
+
+		#incia e comeca o som do jogo
+		pygame.mixer.init()
+		pygame.mixer.music.load('sprites/Super Mario World Music.mp3')
+		pygame.mixer.music.play()
+		pygame.mixer.music.set_volume(0.5)
 	#as 2 funcoes seguintes somente chamam funcoes para que possam acontecer	
 	def update(self):
 		self.snake.move_snake()
 		self.check_collision()
 		self.check_fail()
 		
-
 	def draw_elements(self):
 		self.fruit.draw_fruit()
 		self.snake.draw_snake()
@@ -301,9 +292,7 @@ class MAIN:
 			self.msg.max = (f'Maximo: {self.pontos.max_pontos}')
 		
 		if self.snake.body[0] == self.guarda.pos:
-			print(len(self.snake.body), 'oi')
 			if len(self.snake.body) != 0 and len(self.snake.body) != 1 and len(self.snake.body) != 3:
-				print(len(self.snake.body), 'sss')
 				#verifica a colisao com o guarda e toma as acoes como perder vida do guarda 
 				self.guarda.vida -=1
 				self.espada.play()
@@ -318,7 +307,6 @@ class MAIN:
 				self.guarda.vida = 3
 
 		
-
 	def check_fail(self):
 		#aqui verifica se a condicao onde o jogador "perde" é atendida e chama a funcoes game_over
 		if not 0 <= self.snake.body[0].x < cell_number or not 0 <= self.snake.body[0].y < cell_number:
@@ -329,9 +317,6 @@ class MAIN:
 				self.game_over()
 		
 	
-
-
-
 #essa parte do codigo basicamente configura algumas opcoes importantes para o codigo e que nao mudam nunca,
 # devido a isso nao precisa estar em funcoes ou em classe e sempre sao executadas
 pygame.mixer.pre_init(44100,-16,2,512)
