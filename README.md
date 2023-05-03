@@ -23,3 +23,4 @@ feito com o Dall-E: guarda_real.png, copia_lado_direito.png, comida.png, 1.png.
 portaa_f.png retirada do: https://www.freepik.com/premium-vector/wooden-ancient-medieval-castle-door-with-brick-wall-stones-two-street-lights-night-scene-cartoon-vector-illustration-2d-game_23365607.htm
 Parte do codigo baseado nesse projeto https://github.com/clear-code-projects/Snake
 Som "espada" e  "homen" retirados desse site https://quicksounds.com/library/sounds
+musica de fundo https://www.youtube.com/watch?v=AMIzhWt_pvY&list=PLEXRKXFfN6dr61C3fCEAzYrgwqqfxR58Z&index=8
